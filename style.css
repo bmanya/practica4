@@ -1,0 +1,37 @@
+header{
+    background-color: #808080;
+    color: white;
+}
+
+h7{
+    font-weight: bold;
+}
+
+footer{
+    text-align: end;
+    margin-right: 5%;
+}
+
+.lafoto{
+    margin-top: -135px;
+    margin-left: 0%;
+    width: 270px;
+    height: 270px;
+    border: 15px solid #808080;
+}
+.containerfoto{
+
+    height: 0;
+}
+
+
+@media screen and (max-width: 595px) {
+    header {
+      height: 250px;
+    }
+    .lafoto{
+        margin-left: 20%;
+    }
+  
+  }
+  
