@@ -1,12 +1,13 @@
 <?php
 session_start();
-$servidor = "mysql-jordiciurana16.alwaysdata.net";
-$usuari = "283018_jordi";
-$contrasenya = "collserola7";
-$dbnom = "jordiciurana16_practica2";
-$siusuari = 0;
+$servidor = "mysql-bernatmanya.alwaysdata.net";
+$usuari = "283645";
+$contrasenya = "collserola";
+$dbnom = "bernatmanya_usuaris";
 
 $conn = new mysqli($servidor, $usuari, $contrasenya, $dbnom);
+
+
 
 if ($conn->connect_error) {
         die("Connection failed". $conn->connect_error);
