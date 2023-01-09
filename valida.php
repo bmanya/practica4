@@ -1,17 +1,12 @@
 <?php
 session_start();
-$servidor = "mysql-bernatmanya.alwaysdata.net";
-$usuari = "283645";
-$contrasenya = "collserola";
-$dbnom = "bernatmanya_usuaris";
 
-$conn = new mysqli($servidor, $usuari, $contrasenya, $dbnom);
+require 'conect.php';
 
+$conecta = new Connection();
+$conecta->obrir();
 
 
-if ($conn->connect_error) {
-        die("Connection failed". $conn->connect_error);
-}
 
 if (isset($_POST["name"]) && isset($_POST["pwd"])) {
     $elnom = $_POST["name"];
@@ -37,7 +32,7 @@ if (isset($_POST["name"]) && isset($_POST["pwd"])) {
     }
 }
 
-$conn->close();
+$conecta->tancar();
 
 ?>
 
