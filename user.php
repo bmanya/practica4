@@ -1,5 +1,7 @@
 <?php
 
+require 'conect.php';
+
 class User {
   
   public $elnom;
@@ -18,15 +20,10 @@ class User {
   }
 
   public function save() {
-    $servidor = "mysql-bernatmanya.alwaysdata.net";
-    $usuari = "283645";
-    $contrasenya = "collserola";
-    $dbnom = "bernatmanya_usuaris";
-    $conn = new mysqli($servidor, $usuari, $contrasenya, $dbnom);
+    $conecta = new Connection();
+    $conecta->obrir();
 
-    if ($conn->connect_error) {
-        die("Connection failed". $conn->connect_error);
-    }
+
     $a = $this->$elnom;
     $b = $this->$surname;
     $c = $this->username;
@@ -42,8 +39,34 @@ class User {
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    $conn->close();
+    $conecta->tancar();
   } 
+  public function get(){
+
+    $sql = "SELECT User, Password, Name, Surname FROM Registre";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+  
+        while($row = $result->fetch_assoc()) {
+            
+            if ($row["User"] == $elnom && $row["Password"] == $lacontra) {
+                $_SESSION["usuari"][0] = $row["Name"];
+                $_SESSION["usuari"][1] = $row["Surname"];
+                $_SESSION["usuari"][2] = $row["User"];
+                $siusuari = 1;
+                
+            }
+        }
+    } else {
+        echo "0 results";
+    }
+
+
+
+}
+
+
 }
 
 

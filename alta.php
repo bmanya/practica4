@@ -1,16 +1,10 @@
 <?php
 
 require 'user.php';
+require 'conect.php';
 
-$servidor = "mysql-bernatmanya.alwaysdata.net";
-$usuari = "283645";
-$contrasenya = "collserola";
-$dbnom = "bernatmanya_usuaris";
-$conn = new mysqli($servidor, $usuari, $contrasenya, $dbnom);
-
-if ($conn->connect_error) {
-        die("Connection failed". $conn->connect_error);
-}
+$conecta = new Connection();
+$conecta->obrir();
 
 
     if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['user'])) {
@@ -41,6 +35,6 @@ if ($conn->connect_error) {
 
     
   
-$conn->close();
+$conecta->tancar();
 
 ?>
